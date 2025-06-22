@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# Sport Leagues App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application for browsing and exploring sports leagues from around the world. Built with TypeScript, Vite, and Chakra UI, this app provides an intuitive interface to search, filter, and view detailed information about various sports leagues.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Search functionality** - Find leagues by name
+- 🏀 **Sport filtering** - Filter leagues by sport type
+- 📱 **Responsive design** - Works seamlessly on desktop and mobile
+- 🎨 **Modern UI** - Clean, accessible interface built with Chakra UI
+- ⚡ **Fast performance** - Powered by Vite and React Query for optimal loading
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** - UI library
+- **TypeScript** - Type safety and developer experience
+- **Vite** - Fast build tool and development server
+- **Chakra UI** - Component library for consistent styling
+- **TanStack Router** - Type-safe routing
+- **TanStack Query** - Data fetching and caching
+- **Yarn** - Package manager
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+- Node.js (version 18 or higher)
+- Yarn package manager
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd sport-leagues-app
+   ```
+
+2. Install dependencies:
+   ```bash
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   yarn dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+### Available Scripts
+
+- `yarn dev` - Start the development server
+- `yarn build` - Build the application for production
+- `yarn preview` - Preview the production build locally
+- `yarn lint` - Run ESLint to check for code issues
+
+## Usage
+
+1. **Browse Leagues**: View all available sports leagues on the main page
+2. **Search**: Use the search bar to find specific leagues by name
+3. **Filter**: Use the sport dropdown to filter leagues by sport type
+4. **View Details**: Click on any league card to view detailed information
+
+## Development
+
+The application follows modern React patterns and best practices:
+
+- Type-safe routing with TanStack Router
+- Efficient data fetching with React Query
+- Responsive design with Chakra UI components
+- Clean component architecture
+- TypeScript for enhanced developer experience
+
+## Project Structure
+
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+src/
+├── components/     # Reusable UI components
+├── pages/         # Page components
+├── hooks/         # Custom React hooks
+├── routes/        # Route definitions
+└── main.tsx       # Application entry point
 ```
