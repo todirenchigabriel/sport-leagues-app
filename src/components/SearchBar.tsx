@@ -1,8 +1,5 @@
 import React from "react";
-import { 
-  Input, 
-  Box 
-} from "@chakra-ui/react";
+import { Input, Box } from "@chakra-ui/react";
 
 interface SearchBarProps {
   searchTerm: string;
@@ -10,30 +7,40 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-const SearchBar = ({ 
-  searchTerm, 
-  onSearchChange, 
-  placeholder = "Search leagues..." 
+const SearchBar = ({
+  searchTerm,
+  onSearchChange,
+  placeholder = "Search leagues...",
 }: SearchBarProps) => {
+  const [query, setQuery] = React.useState(searchTerm);
+
+  React.useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onSearchChange(query);
+    }, 250);
+
+    return () => clearTimeout(timeoutId);
+  }, [query, onSearchChange]);
+
   return (
     <Box maxW="md" mx="auto">
       <Input
         placeholder={placeholder}
-        value={searchTerm}
-        onChange={(e) => onSearchChange(e.target.value)}
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
         bg="white"
         borderColor="gray.300"
         _focus={{
           borderColor: "blue.500",
-          boxShadow: "0 0 0 1px #3182ce"
+          boxShadow: "0 0 0 1px #3182ce",
         }}
         _dark={{
           bg: "gray.700",
           borderColor: "gray.600",
           _focus: {
             borderColor: "blue.400",
-            boxShadow: "0 0 0 1px #63b3ed"
-          }
+            boxShadow: "0 0 0 1px #63b3ed",
+          },
         }}
         size="lg"
       />
@@ -41,4 +48,4 @@ const SearchBar = ({
   );
 };
 
-export default SearchBar; 
+export default SearchBar;
